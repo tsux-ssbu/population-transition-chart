@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.header h1 {
+  color: rgba(0, 0, 0, 0.85);
+  font-size: x-large;
+}
