@@ -1,15 +1,23 @@
 import type { NextPage } from 'next';
 
+import { CheckBoxList } from 'src/components/CheckboxList';
+import { Header } from 'src/components/Header';
 import { usePrefectures } from 'src/hooks/usePrefectures';
 
 const Home: NextPage = () => {
-  const { data, error } = usePrefectures();
+  const { prefectures, isError, isLoading } = usePrefectures();
 
-  console.log(data);
+  if (isLoading) {
+    return <div>loading...</div>;
+  }
+  if (isError) {
+    return <div>{isError.message}</div>;
+  }
 
   return (
     <div>
-      <p>home</p>
+      <Header />
+      <CheckBoxList prefectures={prefectures} />
     </div>
   );
 };

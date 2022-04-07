@@ -6,8 +6,8 @@ import { PrefectureType } from 'src/types/prefecture';
 export const usePrefectures = () => {
   const { data, error } = useSWR<PrefectureType[]>('/api/v1/prefectures', fetcher);
   return {
-    data,
-    error,
+    prefectures: data,
     isLoading: !error && !data,
+    isError: error,
   };
 };
