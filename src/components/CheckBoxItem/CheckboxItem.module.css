@@ -1,0 +1,8 @@
+.checkbox {
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
