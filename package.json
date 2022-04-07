@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "chart.js": "^3.7.1",
     "next": "12.1.4",
     "react": "18.0.0",
+    "react-chartjs-2": "^4.0.1",
     "react-dom": "18.0.0",
     "swr": "^1.2.2"
   },
