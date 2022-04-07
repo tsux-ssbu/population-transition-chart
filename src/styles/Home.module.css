@@ -1,0 +1,10 @@
+.main {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.wrapper_chart {
+  margin-top: 30px;
+  background-color: white;
+  padding: 12px 24px;
+}

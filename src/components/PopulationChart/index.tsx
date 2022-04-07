@@ -26,18 +26,19 @@ export const PopulationChart: VFC<Props> = memo((props) => {
   const { labels, datasets } = props;
 
   const options = {
-    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'top' as const,
+        position: 'bottom' as const,
       },
       title: {
         display: true,
         text: '総人口推移グラフ',
         font: {
-          size: 22,
+          size: 18,
         },
         color: 'rgba(0, 0, 0, 0.85)',
+        align: 'start' as const,
       },
     },
   };
@@ -49,7 +50,7 @@ export const PopulationChart: VFC<Props> = memo((props) => {
 
   return (
     <div className={styles.container}>
-      <Line height={300} width={300} data={graphData} options={options} />
+      <Line height={500} width={500} data={graphData} options={options} />
     </div>
   );
 });
