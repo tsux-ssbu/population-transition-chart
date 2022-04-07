@@ -9,9 +9,9 @@ const commonConfig = {
   },
 };
 
-const apiClient = axios.create(commonConfig);
+export const apiClient = axios.create(commonConfig);
 
 export const fetcher = async (url: string): Promise<any> => {
   const res = await apiClient.get(url);
-  return res.data.result;
+  return res.data;
 };
