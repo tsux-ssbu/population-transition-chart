@@ -1,15 +1,18 @@
 import { memo, VFC } from 'react';
 
-import { PrefectureType } from 'src/types/prefecture';
 import { CheckboxItem } from 'src/components/CheckboxItem';
+import { usePrefectures } from 'src/hooks/usePrefectures';
 import styles from './CheckboxList.module.css';
 
-type Props = {
-  prefectures: PrefectureType[] | undefined;
-};
+export const CheckBoxList: VFC = memo(() => {
+  const { prefectures, isError, isLoading } = usePrefectures();
 
-export const CheckBoxList: VFC<Props> = memo((props) => {
-  const { prefectures } = props;
+  if (isLoading) {
+    return <div>loading...</div>;
+  }
+  if (isError) {
+    return <div>{isError.message}</div>;
+  }
 
   return (
     <div className={styles.container}>
