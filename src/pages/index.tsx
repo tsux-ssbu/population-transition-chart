@@ -6,12 +6,16 @@ import { PopulationChart } from 'src/components/PopulationChart';
 import { usePopulation } from 'src/hooks/usePopulation';
 
 const Home: NextPage = () => {
-  const { updatePopulationData, populationGraphData, graphLabel } = usePopulation();
+  const { updatePopulationData, deletePopulationData, populationGraphData, graphLabel } =
+    usePopulation();
 
   return (
     <div>
       <Header />
-      <CheckBoxList updatePopulationData={updatePopulationData} />
+      <CheckBoxList
+        updatePopulationData={updatePopulationData}
+        deletePopulationData={deletePopulationData}
+      />
       <PopulationChart labels={graphLabel} datasets={populationGraphData} />
     </div>
   );

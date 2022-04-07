@@ -48,5 +48,9 @@ export const usePopulation = () => {
     [fetchPopulation, graphLabel],
   );
 
-  return { updatePopulationData, populationGraphData, graphLabel };
+  const deletePopulationData = useCallback((prefName: string) => {
+    setPopulationGraphData((prevData) => prevData.filter((data) => data.label !== prefName));
+  }, []);
+
+  return { updatePopulationData, deletePopulationData, populationGraphData, graphLabel };
 };

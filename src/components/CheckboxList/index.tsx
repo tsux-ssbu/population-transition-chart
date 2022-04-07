@@ -7,10 +7,11 @@ import styles from './CheckboxList.module.css';
 
 type Props = {
   updatePopulationData: (pref: PrefectureType) => Promise<void>;
+  deletePopulationData: (prefName: string) => void;
 };
 
 export const CheckBoxList: VFC<Props> = memo((props) => {
-  const { updatePopulationData } = props;
+  const { updatePopulationData, deletePopulationData } = props;
   const { prefectures, isError, isLoading } = usePrefectures();
 
   if (isLoading) {
@@ -30,6 +31,7 @@ export const CheckBoxList: VFC<Props> = memo((props) => {
               key={prefecture.prefCode}
               prefecture={prefecture}
               updatePopulationData={updatePopulationData}
+              deletePopulationData={deletePopulationData}
             />
           );
         })}
