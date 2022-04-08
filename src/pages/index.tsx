@@ -2,22 +2,26 @@ import type { NextPage } from 'next';
 
 import { CheckBoxList } from 'src/components/CheckboxList';
 import { Header } from 'src/components/Header';
-import { usePrefectures } from 'src/hooks/usePrefectures';
+import { PopulationChart } from 'src/components/PopulationChart';
+import { usePopulation } from 'src/hooks/usePopulation';
+import styles from 'src/styles/Home.module.css';
 
 const Home: NextPage = () => {
-  const { prefectures, isError, isLoading } = usePrefectures();
-
-  if (isLoading) {
-    return <div>loading...</div>;
-  }
-  if (isError) {
-    return <div>{isError.message}</div>;
-  }
+  const { updatePopulationData, deletePopulationData, populationGraphData, graphLabel } =
+    usePopulation();
 
   return (
     <div>
       <Header />
-      <CheckBoxList prefectures={prefectures} />
+      <div className={styles.main}>
+        <CheckBoxList
+          updatePopulationData={updatePopulationData}
+          deletePopulationData={deletePopulationData}
+        />
+        <div className={styles.wrapper_chart}>
+          <PopulationChart labels={graphLabel} datasets={populationGraphData} />
+        </div>
+      </div>
     </div>
   );
 };
