@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { API_URL, API_KEY } from 'src/config';
+import { API_URL, API_KEY } from '../config';
 
 const commonConfig = {
   baseURL: API_URL,

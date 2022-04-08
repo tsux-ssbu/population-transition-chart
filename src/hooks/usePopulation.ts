@@ -2,11 +2,11 @@ import { useCallback, useState } from 'react';
 
 import axios from 'axios';
 
-import { PopulationType } from 'src/types/population';
-import { PrefectureType } from 'src/types/prefecture';
-import { PopulationDatasetsType } from 'src/types/chart';
-import { apiClient } from 'src/utils/fetcher';
-import { getRandomColor } from 'src/utils/getRandomColor';
+import { PopulationType } from '../types/population';
+import { PrefectureType } from '../types/prefecture';
+import { PopulationDatasetsType } from '../types/chart';
+import { apiClient } from '../utils/fetcher';
+import { getRandomColor } from '../utils/getRandomColor';
 
 const POPUlATION_URL = '/api/v1/population/composition/perYear';
 

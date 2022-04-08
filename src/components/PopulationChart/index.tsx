@@ -12,7 +12,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
-import { PopulationDatasetsType } from 'src/types/chart';
+import { PopulationDatasetsType } from '../../types/chart';
 import styles from './PopulationChart.module.css';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
