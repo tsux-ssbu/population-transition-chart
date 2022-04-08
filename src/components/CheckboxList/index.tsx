@@ -15,10 +15,18 @@ export const CheckBoxList: VFC<Props> = memo((props) => {
   const { prefectures, isError, isLoading } = usePrefectures();
 
   if (isLoading) {
-    return <div>loading...</div>;
+    return (
+      <div className={styles.loading_container}>
+        <span>loading...</span>
+      </div>
+    );
   }
   if (isError) {
-    return <div>{isError.message}</div>;
+    return (
+      <div>
+        <span>{isError.message}</span>
+      </div>
+    );
   }
 
   return (

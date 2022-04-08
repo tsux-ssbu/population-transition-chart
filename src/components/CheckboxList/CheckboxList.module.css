@@ -12,3 +12,23 @@
   flex-wrap: wrap;
   gap: 5px 5px;
 }
+
+.loading_container {
+  height: 200px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .loading_container {
+    height: 400px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
