@@ -21,13 +21,13 @@ export const CheckboxItem: VFC<Props> = memo((props) => {
   };
 
   return (
-    <div>
+    <li>
       <label className={styles.checkbox}>
         <input type='checkbox' name='prefectures' onChange={handleChange} />
         <span>
           {prefecture.prefName.length === 3 ? `${prefecture.prefName}　` : `${prefecture.prefName}`}
         </span>
       </label>
-    </div>
+    </li>
   );
 });

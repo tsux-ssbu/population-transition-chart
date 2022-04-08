@@ -32,7 +32,7 @@ export const CheckBoxList: VFC<Props> = memo((props) => {
   return (
     <div className={styles.container}>
       <h3 className={styles.heading}>都道府県</h3>
-      <div className={styles.checkbox_list}>
+      <ul className={styles.checkbox_list}>
         {prefectures?.map((prefecture) => {
           return (
             <CheckboxItem
@@ -43,7 +43,7 @@ export const CheckBoxList: VFC<Props> = memo((props) => {
             />
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 });
