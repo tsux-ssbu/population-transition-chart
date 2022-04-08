@@ -1,5 +1,7 @@
 import { useCallback, useState } from 'react';
 
+import axios from 'axios';
+
 import { PopulationType } from 'src/types/population';
 import { PrefectureType } from 'src/types/prefecture';
 import { PopulationDatasetsType } from 'src/types/chart';
@@ -22,8 +24,10 @@ export const usePopulation = () => {
       const res = await apiClient.get<Response>(`${POPUlATION_URL}?prefCode=${pref.prefCode}`);
       const populationData = res.data.result.data[0].data; // 総人口のデータ
       return populationData;
-    } catch (error: any) {
-      throw new Error(error.message);
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.response && error.response.status) {
+        throw new Error(error.message);
+      }
     }
   }, []);
 
@@ -31,6 +35,7 @@ export const usePopulation = () => {
     async (pref: PrefectureType) => {
       try {
         const populationData = await fetchPopulation(pref);
+        if (populationData === undefined) return;
         if (graphLabel.length === 0) {
           const label = populationData.map((item) => item.year);
           setGraphLabel(label);
@@ -41,8 +46,10 @@ export const usePopulation = () => {
           ...prevData,
           { label: pref.prefName, data: populationTransitionArray, borderColor: borderColor },
         ]);
-      } catch (error: any) {
-        throw new Error(error.message);
+      } catch (error) {
+        if (axios.isAxiosError(error) && error.response && error.response.status) {
+          alert(error.message);
+        }
       }
     },
     [fetchPopulation, graphLabel],
