@@ -1,6 +1,6 @@
 import { memo, VFC } from 'react';
 
-import styles from 'src/components/Header/Header.module.css';
+import styles from './Header.module.css';
 
 export const Header: VFC = memo(() => {
   return (

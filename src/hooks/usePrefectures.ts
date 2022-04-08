@@ -1,7 +1,7 @@
 import useSWRImmutable from 'swr/immutable';
 
-import { fetcher } from 'src/utils/fetcher';
-import { PrefectureType } from 'src/types/prefecture';
+import { PrefectureType } from '../types/prefecture';
+import { fetcher } from '../utils/fetcher';
 
 type Response = {
   message: null;

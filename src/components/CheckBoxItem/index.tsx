@@ -1,6 +1,6 @@
 import { ChangeEventHandler, memo, VFC } from 'react';
 
-import { PrefectureType } from 'src/types/prefecture';
+import { PrefectureType } from '../../types/prefecture';
 import styles from './CheckboxItem.module.css';
 
 type Props = {

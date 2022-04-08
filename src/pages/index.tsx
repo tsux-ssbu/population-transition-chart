@@ -1,10 +1,10 @@
 import type { NextPage } from 'next';
 
-import { CheckBoxList } from 'src/components/CheckboxList';
-import { Header } from 'src/components/Header';
-import { PopulationChart } from 'src/components/PopulationChart';
-import { usePopulation } from 'src/hooks/usePopulation';
-import styles from 'src/styles/Home.module.css';
+import { CheckBoxList } from '../components/CheckboxList';
+import { Header } from '../components/Header';
+import { PopulationChart } from '../components/PopulationChart';
+import { usePopulation } from '../hooks/usePopulation';
+import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
   const { updatePopulationData, deletePopulationData, populationGraphData, graphLabel } =
