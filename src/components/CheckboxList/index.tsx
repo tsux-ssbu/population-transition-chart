@@ -2,8 +2,6 @@ import { memo, VFC } from 'react';
 
 import { usePrefectures } from '../../hooks/usePrefectures';
 import { PrefectureType } from '../../types/prefecture';
-// import { CheckboxItem } from '../CheckboxItem';
-
 import styles from './CheckboxList.module.css';
 
 type Props = {
@@ -34,16 +32,30 @@ export const CheckBoxList: VFC<Props> = memo((props) => {
     <div className={styles.container}>
       <h3 className={styles.heading}>都道府県</h3>
       <ul className={styles.checkbox_list}>
-        {/* {prefectures?.map((prefecture) => {
+        {prefectures?.map((prefecture) => {
           return (
-            <CheckboxItem
-              key={prefecture.prefCode}
-              prefecture={prefecture}
-              updatePopulationData={updatePopulationData}
-              deletePopulationData={deletePopulationData}
-            />
+            <li key={prefecture.prefCode}>
+              <label className={styles.checkbox}>
+                <input
+                  type='checkbox'
+                  name='prefectures'
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      updatePopulationData(prefecture);
+                    } else {
+                      deletePopulationData(prefecture.prefName);
+                    }
+                  }}
+                />
+                <span>
+                  {prefecture.prefName.length === 3
+                    ? `${prefecture.prefName}　`
+                    : `${prefecture.prefName}`}
+                </span>
+              </label>
+            </li>
           );
-        })} */}
+        })}
       </ul>
     </div>
   );

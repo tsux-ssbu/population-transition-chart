@@ -22,6 +22,15 @@
   align-items: center;
 }
 
+.checkbox {
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
 @media (max-width: 767px) {
   .loading_container {
     height: 400px;
