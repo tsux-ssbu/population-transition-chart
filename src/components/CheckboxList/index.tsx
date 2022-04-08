@@ -2,7 +2,7 @@ import { memo, VFC } from 'react';
 
 import { usePrefectures } from 'src/hooks/usePrefectures';
 import { PrefectureType } from 'src/types/prefecture';
-import { CheckboxItem } from '../CheckboxItem';
+import { CheckboxItem } from 'src/components/CheckboxItem';
 import styles from './CheckboxList.module.css';
 
 type Props = {
