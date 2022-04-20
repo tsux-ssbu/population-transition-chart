@@ -8,7 +8,7 @@ import { PopulationDatasetsType } from '../types/chart';
 import { apiClient } from '../utils/fetcher';
 import { getRandomColor } from '../utils/getRandomColor';
 
-const POPUlATION_URL = '/api/v1/population/composition/perYear';
+const POPULATION_URL = '/api/v1/population/composition/perYear';
 
 type Response = {
   message: null;
@@ -21,7 +21,7 @@ export const usePopulation = () => {
 
   const fetchPopulation = useCallback(async (pref: PrefectureType) => {
     try {
-      const res = await apiClient.get<Response>(`${POPUlATION_URL}?prefCode=${pref.prefCode}`);
+      const res = await apiClient.get<Response>(`${POPULATION_URL}?prefCode=${pref.prefCode}`);
       const populationData = res.data.result.data[0].data; // 総人口のデータ
       return populationData;
     } catch (error) {

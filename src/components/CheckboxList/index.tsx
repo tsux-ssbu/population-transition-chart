@@ -1,7 +1,8 @@
-import { memo, VFC } from 'react';
+import { ChangeEvent, memo, VFC } from 'react';
 
 import { usePrefectures } from '../../hooks/usePrefectures';
 import { PrefectureType } from '../../types/prefecture';
+import { useDebounce } from '../../hooks/useDebounce';
 import styles from './CheckboxList.module.css';
 
 type Props = {
@@ -12,6 +13,15 @@ type Props = {
 export const CheckBoxList: VFC<Props> = memo((props) => {
   const { updatePopulationData, deletePopulationData } = props;
   const { prefectures, isError, isLoading } = usePrefectures();
+  const { debounce } = useDebounce(300);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>, prefecture: PrefectureType) => {
+    if (e.target.checked) {
+      debounce(() => updatePopulationData(prefecture));
+    } else {
+      debounce(() => deletePopulationData(prefecture.prefName));
+    }
+  };
 
   if (isLoading) {
     return (
@@ -39,13 +49,7 @@ export const CheckBoxList: VFC<Props> = memo((props) => {
                 <input
                   type='checkbox'
                   name='prefectures'
-                  onChange={(e) => {
-                    if (e.target.checked) {
-                      updatePopulationData(prefecture);
-                    } else {
-                      deletePopulationData(prefecture.prefName);
-                    }
-                  }}
+                  onChange={(e) => handleChange(e, prefecture)}
                 />
                 <span>
                   {prefecture.prefName.length === 3
